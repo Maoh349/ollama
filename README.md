@@ -98,3 +98,74 @@ ollama remove [モデル名]
 こんにちは！元気ですか？
 今日はどのようなことでしょうか？何か教えてください。
 ```
+
+
+## 2.マルチモーダル
+画像を元にしたテキスト推論
+
+### 代表的なマルチモーダルモデル
+- [llava](https://ollama.com/library/llava)
+  - Microsoft社やウィスコンシン大学などの研究チームが開発した、画像に基づいて回答できるもでる
+- bakllava
+  - Shunk Works社が開発したMistral 7BベースのマルチモーダルLLM
+
+### マルチモーダルの使い方
+```
+% ollama run bakllava 'Explain this picture ./image.jpg'
+Added image './image.jpg'
+```
+
+### 3. Embeddingモデル
+- snowflake-arctic-embed
+  - snowflake社によるオープンソースEmbeddingモデル
+- nomic-embed-text
+  - Nomic AI社によるオープンソースEmbeddingモデル
+- mxbai-embed-large
+  - Mixedbread AI社によるEmbeddingモデル
+ 
+### 4. ollamaライブラリ
+主にPythonでの使い方
+
+### インストール
+```
+% pip install ollama
+```
+
+### 使い方
+メッセージ生成
+```
+import ollama
+response = ollama.chat(
+  model='llama3.1',
+  messages=[
+    {'role':'user','content':'空はなぜ青いの'}
+  ]
+)
+response
+```
+
+### API
+```
+from ollama import Client
+
+client = Client(host='http://host.docker.internal:11434')
+response = client.chat(model='llama3.1', messages=[
+    {
+        'role':'user',
+        'content': '空はなぜ青いの',
+    }
+])
+response
+```
+
+### Embedding
+```
+import ollama
+response = ollama.embeddings(
+  model='mxbai-embed-large',
+  prompt='空はなぜ青いの',
+)
+response
+```
+> 引用  
+https://qiita.com/misu007/items/4d629957a2099abe875b
