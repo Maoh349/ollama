@@ -43,7 +43,7 @@ ollama version is 0.2.8
 
 使いたいLLMモデルを指定し```pull```することで、モデルファイルがダウンロードされ、準備が整います。
 ```
-% ollama pull llama3
+% ollama pull [モデル名]
 pulling manifest
 pulling 109037bec39c... 100%  ██████████████████████████▏ 8.4 KB
 pulling 109037bec39c... 100% ▕█████████████████████████████████████████████████████████▏  136 B
@@ -55,9 +55,23 @@ removing any unused layers
 success
 ```
 
+ダウンロードしたモデルを確認する方法
+```
+% ollama list
+gemma:latest    a72c7f4d0a15    5.0 GB  48 minutes ago
+llama3.1:latest 62757c860e01    4.7 GB  3 days ago
+phi3:latest     d184c916657e    2.2 GB  4 days ago
+llama3:latest   365c0bd3c000    4.7 GB  4 days ago
+```
+
+不要なモデルを削除する方法
+```
+ollama remove [モデル名]
+```
+
 ```run```コマンドでLLMを立ち上げると会話モードに入り
 ```
-% ollama run gemma
+% ollama run [モデル名]
 >>> Send a message (/? for help)
 ```
 メッセージを送信できるようになります。
@@ -70,7 +84,7 @@ success
 ```
 メッセージを送信すると返答が表示され、チャット形式で会話できます。
 ```
-% ollama run gemma
+% ollama run [モデル名]
 >>> こんにちは
 こんにちは！元気ですか？
 今日はどのようなことでしょうか？何か教えてください。
@@ -80,7 +94,7 @@ success
 ```/bye```で会話モードが終了します。
 最初の```run```時に引数でメッセージを渡すことで、1回のコマンドで１往復のチャットを実行することも可能です。
 ```
-% ollama run gemma こんにちは
+% ollama run [モデル名] こんにちは
 こんにちは！元気ですか？
 今日はどのようなことでしょうか？何か教えてください。
 ```
