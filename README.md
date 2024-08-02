@@ -115,7 +115,7 @@ ollama remove [モデル名]
 Added image './image.jpg'
 ```
 
-### 3. Embeddingモデル
+## 3. Embeddingモデル
 - snowflake-arctic-embed
   - snowflake社によるオープンソースEmbeddingモデル
 - nomic-embed-text
@@ -123,7 +123,7 @@ Added image './image.jpg'
 - mxbai-embed-large
   - Mixedbread AI社によるEmbeddingモデル
  
-### 4. ollamaライブラリ
+## 4. ollamaライブラリ
 主にPythonでの使い方
 
 ### インストール
